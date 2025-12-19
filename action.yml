@@ -1,4 +1,4 @@
-name: 'Perform string operations'
+name: 'Perform string operations '
 description: 'You will be perform string functions'
 inputs:
   string_to_process:     

@@ -15,6 +15,7 @@ runs:
   steps:
     - run: |
         echo "Processing: ${{ inputs.string_to_process }}" 
+        echo "Processing: ${{ inputs.string_to_process }}" 
         result=$(echo ${{ inputs.string_to_process }} | tr '[:lower:]' '[:upper:]')
         echo "result=$result" >> $GITHUB_OUTPUT
       shell: bash

@@ -9,13 +9,16 @@ inputs:
     default: "Test"
 outputs:
   result:
-    description: 'converted string'  
+    description: 'converted string'
+    value: ${{ steps.process.outputs.result }}  
+
 runs:
   using: 'composite'
   steps:
-    - run: |
+    - id: process  
+      run: |
         echo "Processing: ${{ inputs.string_to_process }}"         
-        result=$(echo ${{ inputs.string_to_process }} | tr '[:lower:]' '[:upper:]')
-        echo $result
+        result=$(echo "${{ inputs.string_to_process }}" | tr '[:lower:]' '[:upper:]')
+        echo "$result"
         echo "result=$result" >> $GITHUB_OUTPUT
       shell: bash
